@@ -1,0 +1,66 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: beige;
+}
+
+
+form {
+    width: 400px;
+    background: beige;
+    margin: 30px auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+fieldset {
+    padding: 8px;
+    border: 1px solid rgb(0, 8, 255);
+}
+
+.box {
+    width: 400px;
+    margin: 10px auto;
+    border: 2px solid green;
+    padding: 6px;
+}
+
+input {
+    margin-bottom: 10px;
+   
+    
+}
+input[type=radio] {
+    margin-right: 5px;
+}
+
+form ul {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    list-style-type: none;
+
+}
+
+legend {
+    font-size: 1.4em;
+}
+
+.error {
+    display: block;
+    color: red;
+    text-align: center;
+    font-size: 1.4em;
+    margin-bottom: 3px;
+}
+
+select {
+    display: block;
+    margin-bottom: 10px;
+}

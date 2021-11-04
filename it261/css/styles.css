@@ -1,0 +1,156 @@
+/* styles for my portal page */
+
+* { 
+
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #ddd;
+    
+}
+
+header {
+    height: 50px;
+    
+  
+}
+.header-inner {
+    max-width: 100%;
+    /* margin:20px auto; */
+    
+}
+
+.welcome a {
+   
+    color: black;
+}
+
+.welcome  {
+    padding-top: 40px;
+    
+}
+
+#wrapper {
+width: 60px;
+margin: 20px auto;
+
+}
+#logo {
+    float: left;
+    width: 125px;
+    height: 0;
+}
+
+/* list {
+    margin: 20px;
+} */
+
+a {
+    text-decoration: none;
+}
+
+#me {
+    width: 300px;
+    height: auto;
+    float: left;
+    padding-top: 40px;
+    padding-right: 20px;
+    
+    
+
+}
+
+nav {
+    background: rgb(220, 87, 87);
+    height: 50px;
+    
+    
+}
+
+nav ul li:last-child {
+    
+    color: rgb(35, 9, 84);
+    padding-left: 100px;
+    font-size: large;
+  }
+
+nav ul {
+    
+    float: none;
+    
+}
+nav li {
+    float: left;
+    list-style: none;
+    margin-left: 30px;
+    
+    
+
+}
+
+li a {
+    text-decoration: none;
+}
+
+nav a{
+
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    background: rgb(220, 87, 87);
+}
+ main {
+     width: 100%;
+    /* float: left;        */
+    background: rgb(167, 168, 171);
+ }
+
+ .bio {
+     float: right;
+     font-family: 'Archivo', sans-serif;
+     font-size: 24px;
+     padding-top: 20px;
+ }
+
+ section {
+     float: right;
+     width: 40%;
+     background: rgb(67, 160, 186);
+     padding-left: 100px;
+     padding-bottom: 70px;
+ }
+
+ aside {
+     /* height: 600px; */
+     float: right;
+     background: rgb(167, 168, 171);
+     width: 60%;
+     text-decoration: none;
+     padding: 20px;
+     font-family: 'Inter', sans-serif;
+
+ }
+
+
+ #screenshot
+    {
+        width: 800px;
+        height: auto;
+        /* padding: 50px; */
+        margin-top: 40px;
+    }
+
+
+    footer {
+        height: 50px;
+        line-height: 50px;
+        border-top: 1px dotted #333;
+        clear: both;
+    }
+    footer li {
+        float: left;
+        list-style-type: none;
+        margin-left: 20px
+    }
