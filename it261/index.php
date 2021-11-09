@@ -79,8 +79,11 @@
 <li><a href="weeks/week5/currency2.php" target="_blank">currency2.php</a></li>
 <li><a href="weeks/week5/currency3.php" target="_blank">currency3.php</a></li>
 <li><a href="weeks/week5/currency4.php" target="_blank">currency4.php</a></li>
-<li><a href="weeks/week5/null.php" target="_blank">null.php</a></li><h2>Week 6</h2>
+<li><a href="weeks/week5/null.php" target="_blank">null.php</a></li>
+<h2>Week 6</h2>
 <li><a href="weeks/week6/form1.php" target="_blank">form1.php</a></li>
+<li><a href="weeks/week6/functions.php" target="_blank">functions.php</a></li>
+<li><a href="weeks/week6/implode.php" target="_blank">implode.php</a></li>
 
 
 

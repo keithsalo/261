@@ -8,6 +8,7 @@ $wines = '';
 $regions = '';
 $comments = '';
 $privacy = '';
+$phone = '';
 
 $first_name_Err = '';
 $last_name_Err = '';
@@ -17,6 +18,7 @@ $wines_Err = '';
 $regions_Err = '';
 $comments_Err = '';
 $privacy_Err = '';
+$phone_Err = ''; 
 
 
 
@@ -70,6 +72,17 @@ if(empty($_POST['comments'])) {
         $comments = $_POST['comments'];
 }
 
+if(empty($_POST['phone'])) {  // if empty, type in your number
+    $phone_Err = 'Your phone number please!';
+    } elseif(array_key_exists('phone', $_POST)){
+    if(!preg_match('/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/', $_POST['phone']))
+    { // if you are not typing the requested format of xxx-xxx-xxxx, display Invalid format
+    $phone_Err = 'Invalid format!';
+    } else{
+    $phone = $_POST['phone'];
+    }
+    }
+
 //the logic is if post wines is not empty, then, 
 // we need to grab wines and display them just like we did in implode.php
 
@@ -92,7 +105,8 @@ $_POST['gender'],
 $_POST['wines'],
 $_POST['regions'],
 $_POST['comments'],
-$_POST['privacy']
+$_POST['privacy'],
+$_POST['phone']
 )) {
 
     $to = 'keithsalo@gmail.com';
@@ -101,13 +115,20 @@ $_POST['privacy']
     The first name is: '.$first_name.' '.PHP_EOL.'
     The last name is: '.$last_name.' '.PHP_EOL.'
     Gender: '.$gender.' '.PHP_EOL.'
+    Email: '.$email.' '.PHP_EOL.'
+    Phone: '.$phone.' '.PHP_EOL.'
     Region: '.$regions.' '.PHP_EOL.'
    
     Comments: '.$comments.' '.PHP_EOL.'
     ';
     // Wines: '.$my_wines().' '.PHP_EOL.'
 
-mail($to, $subject, $body);
+$headers = array(
+'From'=> 'noreply@thanks.com',
+'Reply-to'=> ''.$email.''
+);
+
+mail($to, $subject, $body, $headers);
 header('Location: thx.php');
 
 }
@@ -152,6 +173,14 @@ header('Location: thx.php');
 ">
 <span class="error">
 <?php echo $email_Err;  ?>
+</span>
+
+<label for="phone">Phone Number</label>
+<input type="text" name="name" placeholder="xxx-xxx-xxxx" value="
+<?php if(isset($_POST['phone'])) echo htmlspecialchars($_POST['phone']) ;?>
+">
+<span class="error">
+<?php echo $phone_Err;  ?>
 </span>
 
 <label for="gender">Gender</label>

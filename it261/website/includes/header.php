@@ -1,60 +1,4 @@
-<?php
 
-define('THIS_PAGE', basename($_SERVER['PHP_SELF']));
-
-$nav ['index.php'] = 'Home';
-$nav ['about.php'] = 'About';
-$nav ['daily.php'] = 'Daily';
-$nav ['project.php'] = 'Project';
-$nav ['contact.php'] = 'Contact';
-$nav ['gallery.php'] = 'Gallery';
-
-switch(THIS_PAGE) {
-case 'index.php':
-  $title = 'Home of our IT261 Website';
-  $body = 'home';
-  $headline = 'Welcome to our Home page of our IT 261 Website!';
-  break;
-  case 'about.php':
-  $title = 'About page of our IT261 Website';
-  $body = 'about inner';
-  $headline = 'Welcome to our About page of our IT 261 Website!';
-  break;
-  case 'daily.php':
-  $title = 'Daily page of our IT261 Website';
-  $body = 'daily inner';
-  $headline = 'Welcome to our Daily page where our Homework 3 switch will display!';
-  break;
-  case 'project.php':
-  $title = 'Project page page of our IT261 Website';
-  $body = 'contact inner';
-  $headline = 'Welcome to our Contact page of our IT 261 Website!';
-  break;
-  case 'contact.php':
-    $title = 'Contact page of our IT261 Website';
-    $body = 'contact inner';
-    $headline = 'Welcome to our Contact page of our IT 261 Website!';
-    break;
-  case 'gallery.php':
-  $title = 'Gallery page of our IT261 Website';
-  $body = 'gallery inner';
-  $headline = 'Welcome to our Contact page of our IT 261 Website!';
-  break;
-
-
-}
-
-if(isset($_GET['today'])) {
-$today = $_GET['today'];
-} else {
-$today = date('l');
-
-
-}
-
-
-
-?>
 
 <!doctype html>
 <html lang="en">
@@ -85,19 +29,7 @@ $today = date('l');
 
     <ul>
       <?php
-      foreach($nav as $key => $value) {
-        if(THIS_PAGE ==$key) {
-          echo '
-          <li><a class="current" href="'.$key.'">'.$value.'</a></li>
-          ';
-        } else {
-      echo '
-      <li><a href="'.$key.'">'.$value.'</a></li>
-      ';
-      }
-      
-    }
-
+     echo $my_nav($nav);
 ?>
 
     </ul>
