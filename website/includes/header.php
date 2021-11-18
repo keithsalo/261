@@ -1,4 +1,4 @@
-
+<?php include('config.php'); ?>
 
 <!doctype html>
 <html lang="en">
@@ -13,7 +13,7 @@
 <body class="<?php echo $body; ?>">
     <header>
         <div class="header-inner">
-        <a href="index.html">
+        <a href="index.php">
             <img id="logo" src="images/logo.png" alt="logo">
     </a>
     <nav>
@@ -29,7 +29,7 @@
 
     <ul>
       <?php
-     echo $my_nav($nav);
+     echo my_nav($nav);
 ?>
 
     </ul>

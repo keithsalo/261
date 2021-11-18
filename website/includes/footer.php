@@ -16,7 +16,7 @@
             <li><a href="">Terms of use</a></li>
             <li><a href="">Web Design by Keith Salo</a></li>
             <li><a href="https://validator.w3.org/check/referer">HTML Validation</a></li>
-            <li><a href="">CSS Validation</a></li>
+            <li><a href="https://jigsaw.w3.org/css-validator/">CSS Validation</a></li>
         
         </ul>
 
