@@ -1,16 +1,19 @@
 <?php
-// include('config.php');
-include('includes/header.php');
-include('credentials.php');
-?>
-    <div id="wrapper">
-    
-    <main>
-      
+// tree.php
+// tree-view.php
+// config file
+// credential file
+// don't forget, this needs to be uploaded onto server, will not work on localhost
 
-        <h1><?php echo $headline; ?></h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eros est, tincidunt nec cursus sed, feugiat in risus. Morbi et purus ut magna egestas pharetra. Integer ullamcorper quam pharetra, vehicula tortor a, rhoncus libero. Aliquam molestie eget ante quis efficitur.</p>
-        <?php
+include('config.php');
+include('includes/header.php');
+
+// for your big database assignment, you HEADER INCLUDE would go right here!
+?>
+<main>
+<h1>Trees of the Pacific Northwest</h1>
+
+<?php
 // We need to grab our table and assign it to a variable 
 
 $sql = 'SELECT * FROM trees';
@@ -28,10 +31,11 @@ $result = mysqli_query($iConn, $sql) or die(myError(__FILE__,__LINE__,mysqli_err
 if(mysqli_num_rows($result) > 0) {
 // now time for the while loop - and the while loop will return the array
 while($row = mysqli_fetch_assoc($result)){
-echo '<h3>For more information about '.$row['treename'].', please click <a href="project-view.php?id='.$row['trees_id'].'">here!</a></h3>';
+echo '<h3>For more information about '.$row['treename'].', please click <a href="tree-view.php?id='.$row['trees_id'].'">here!</a></h3>';
 echo '<ul>';
 echo '<li>'.$row['treename'].'</li>';
 echo '<li>'.$row['classification'].'</li>';
+echo '<li>'.$row['email'].'</li>';
 echo '</ul>';
 echo '<hr>';
 }// closing while
@@ -44,13 +48,14 @@ mysqli_free_result($result);
 mysqli_close($iConn);
 
 ?>
+</main>
 
-    </main>
+<aside>
+<h3>My Mystery Aside</h3>
 
-    <aside>
-    <h3>Our Aside for our Project</h3>
+</aside>
 
-    </aside>
 
-    <?php
-    include('includes/footer.php'); ?>
+</div> <!-- end wrapper -->
+<?php
+include('includes/footer.php');

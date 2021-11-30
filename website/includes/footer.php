@@ -3,7 +3,7 @@
             <li>Copyright &copy; 
                 <?php 
                 $date_current = date('Y');
-                $date_created = 2017;
+                $date_created = 2020;
                 if($date_current == $date_created){
                     echo $date_current;
                 } else {

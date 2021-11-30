@@ -115,3 +115,8 @@ label {
     margin-top: 5px;
     font-style: italic;
 }
+
+#ttable {
+    width: 100%;
+    height: auto;
+}

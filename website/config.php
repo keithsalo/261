@@ -1,4 +1,6 @@
 <?php
+ob_start();  // prevents header errors before reading the whole page!
+define('DEBUG', 'TRUE');  // We want to see our errors
 
 define('THIS_PAGE', basename($_SERVER['PHP_SELF']));
 
@@ -40,15 +42,20 @@ case 'index.php':
   $headline = 'Welcome to our Daily page where our Homework 3 switch will display!';
   break;
   case 'project.php':
-  $title = 'Project page page of our IT261 Website';
-  $body = 'contact inner';
-  $headline = 'Welcome to our Contact page of our IT 261 Website!';
+  $title = 'Project page of our IT261 Website';
+  $body = 'project inner';
+  $headline = 'Welcome to our Project page of our IT 261 Website!';
   break;
   case 'contact.php':
     $title = 'Contact page of our IT261 Website';
     $body = 'contact inner';
     $headline = 'Welcome to our Contact page of our IT 261 Website!';
     break;
+    case 'about.php':
+        $title = 'About page of our IT261 Website';
+        $body = 'about inner';
+        $headline = 'Welcome to our About page of our IT 261 Website!';
+        break;
   case 'gallery.php':
   $title = 'Gallery page of our IT261 Website';
   $body = 'gallery inner';
@@ -257,5 +264,18 @@ $today = date('l');
     
     } // end if server request
 
-    ?>
-   
+    function myError($myFile, $myLine, $errorMsg)
+{
+if(defined('DEBUG') && DEBUG)
+{
+ echo 'Error in file: <b> '.$myFile.' </b> on line: <b> '.$myLine.' </b>';
+      echo 'Error message: <b> '.$errorMsg.'</b>';
+      die();
+  }  else {
+      echo ' Houston, we have a problem!';
+      die();
+  }
+    
+    
+}
+
