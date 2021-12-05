@@ -2,9 +2,9 @@
 // input fields for username and password
 
 include('server.php'); // the server.php is connected to the config page which is connected to the credentials page
-// include('includes/header.php');
+include('includes/header-form.php');
 ?>
-
+<div id="wrapper">
 <h1 class="center">Login</h1>
 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);    ?>" method="post">
 <fieldset>
@@ -19,8 +19,15 @@ include('server.php'); // the server.php is connected to the config page which i
 <button type="button" onclick="window.location.href='<?php  echo htmlspecialchars($_SERVER['PHP_SELF'])     ;?>'">Reset</button>
 
 <?php
-// include('errors.php');
+ include('errors.php');
 
 ?>
 </fieldset>
 </form>
+
+<h3>Not a member?</h3>
+<span class="block"><a href="register.php">Register here!</a></span>
+
+</div> <!-- close wrapper -->
+</body>
+</html>

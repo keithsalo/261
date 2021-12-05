@@ -20,6 +20,11 @@ $username = mysqli_real_escape_string($iConn, $_POST['username']);
 $password_1 = mysqli_real_escape_string($iConn, $_POST['password_1']);
 $password_2 = mysqli_real_escape_string($iConn, $_POST['password_2']);
 
+
+
+
+
+
 // we want the end user to fill everything out
 // if it is empty - we are going to use a new function - array_push()
 
@@ -47,6 +52,13 @@ if($password_1 !== $password_2) {
     array_push($errors, 'Passwords  do not match!');
 }
 
+
+
+
+
+
+
+
 // we are checking the username and password, and selecting it from the table
 
 $user_check_query = "SELECT * FROM users WHERE username = '$username' OR email = '$email' LIMIT 1 ";
@@ -67,32 +79,59 @@ if($rows['email'] == $email) {
 
 } // close big rows
 
+
+
+
+
 // if everything is ok,  of we don't have any errors!! GOOD
 
-if(count($errors) < 1)  {
-// new function, md5() - this function will split out in your database a 32 hex character value for you password
+// if(count($errors) == 0)  {
+// // new function, md5() - this function will split out in your database a 32 hex character value for you password
+
+// $password = md5($password_1);
+
+// // we must insert out registration data into the table inside our database, this will happen by using the INSERT
+
+// $query = "INSERT INTO users (first_name, last_name, email, username, password) VALUES ('$first_name', '$last_name, '$email', '$username', '$password')";
+
+// mysqli_query($iConn, $query);
+
+// $_SESSION['username'] = $username;
+// $_SESSION['success'] = $success;
+
+
+// header('Location:login.php');
+
+// } // end count
+
+// } // end if isset reg_user
+
+
+
+if(count($errors) == 0) {
+// introduce a new function md5() - this function will spit out in your datase a 32 hex character value for your password
 
 $password = md5($password_1);
 
-// we must insert out registration data into the table inside our database, this will happen by using the INSERT
+//  we must insert our registration data into the table inside our database, and this will happen by using the INSERT
 
-$query = "INSERT INTO users (first_name, last_name, email, username, password) VALUES ('$first_name', '$last_name, '$email', '$username', '$password')";
+$query = "INSERT INTO users (first_name, last_name, email, username, password) VALUES ('$first_name', '$last_name', '$email', '$username', '$password')";
 
 mysqli_query($iConn, $query);
 
 $_SESSION['username'] = $username;
 $_SESSION['success'] = $success;
 
-
 header('Location:login.php');
 
-} // end count
 
-} // end if isset reg_user
+}  // end count
+
+}  // end if isset reg user
 
 
-
-if(isset($POST['login_user'])) {
+// KEITH !!!!!!!!!!!!!!!!!!! this was yours!!!!! if(isset($POST['login_user'])) YOUR LEFT OUT THE UNDERSCORE!!!!!!!!!!!
+if(isset($_POST['login_user'])) {
     $username = mysqli_real_escape_string($iConn, $_POST['username']);
     $password = mysqli_real_escape_string($iConn, $_POST['password']);
 
@@ -105,30 +144,40 @@ if(isset($POST['login_user'])) {
     array_push($errors, 'Password is required!');
     }
 
+
+
     // we are going to count our errors 0 is good
 
-    if(count($errors) == 0) {
-        $password = md5($password);
+    // if(count($errors) == 0) {
+    //     $password = md5($password);
     // deleted closing brace here
+
+if(count($errors) == 0) {
+    $password = md5($password);
 
 
 $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password' ";
+
+
+
     
-$result = mysqli_query($iConn, $query);
-    
+$results = mysqli_query($iConn, $query);
+ // CHANGED RESULT TO RESULTS!!!!!   
 // if our username and password is equal to one life is good
 
-if(mysqli_num_rows($result) == 1 ) {
+
+
+
+if(mysqli_num_rows($results) == 1 ) {
 
 $_SESSION['username'] = $username;
 $_SESSION['success'] = $success;
-} // closing if count
-// if successful we will be redirected to the index.php page
+
 header('Location:index.php');
 
     } else {
         array_push($errors, 'Wrong username/password combo!');
     }
+}
+} 
 
-
-} // end isset for login

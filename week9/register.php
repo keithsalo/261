@@ -15,9 +15,11 @@
 
 
 include('server.php');
-// include('includes/header.php');
+include('includes/header-form.php');
 
 ?>
+
+<div id="wrapper">
 
 <h1>Register Today!</h1>
 
@@ -52,3 +54,10 @@ include('errors.php'); ?>
 
 </fieldset>
 </form>
+
+<h3>Already a member?</h3>
+<span class="block"><a href="login.php">Log in here!</a></span>
+
+</div> <!-- close wrapper -->
+</body>
+</html>
